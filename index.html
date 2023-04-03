@@ -140,8 +140,8 @@
 
     // Add the data to Firestore
     const docRef = setDoc(doc(db, "beverages",name), {
-    price: price,
-    volume: volume,
+    price: Number(price),
+    volume: Number(volume),
     end_by_date: end_by_date
     });})
       </script>
