@@ -68,6 +68,9 @@
             querySnapshot1.forEach((doc) => {
               console.log(doc.id)
               console.log(doc.data())
+              Object.entries(doc.data()).forEach(([key, value]) => {
+                console.log(key, value);
+                });
             });
 //          // Handle form submission
 //   var form = document.getElementById('product-form');
