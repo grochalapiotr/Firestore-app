@@ -1,5 +1,6 @@
 <!-- HTML form with Bootstrap styling -->
-<div id="parent"></div>
+<div id="demo"></div>
+<div id="demo1"></div>
 <form id="product-form" class="m-3">
   <div class="form-group">
     <label for="name">Name:</label>
@@ -18,6 +19,15 @@
 
   <button type="submit" class="btn btn-primary">Add Product</button>
 </form>
+
+
+
+<div id="div1">
+  <p id="p1">This is a paragraph.</p>
+  <p id="p2">This is another paragraph.</p>
+</div>
+
+
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -59,31 +69,39 @@
 //         }
 
             const querySnapshot = await getDocs(collection(db, "beverages"));
-            let i = 0;
             querySnapshot.forEach((doc) => {
-              i=i+1;
-              console.log(i)
-              let parent = document.querySelector('#parent');
-              let p = document.createElement('p');
-              p.id = "demo"+i ;
-              parent.appendChild(p);
-              document.getElementById("demo"+i).innerHTML = doc.id + "\n"
-              let d = document.createElement('p');
-              d.id = "demo1"+i ;
-              parent.appendChild(d);
-              Object.entries(doc.data()).forEach(([key, value]) => {
-                document.getElementById("demo1"+i).innerHTML += key + "\n" + value;
-                });
-              
+              document.getElementById("demo").innerHTML += doc.id + "\n"
+              document.getElementById("demo1").innerHTML += doc.data();
             });
             const querySnapshot1 = await getDocs(collection(db, "food"));
             querySnapshot1.forEach((doc) => {
               console.log(doc.id)
               console.log(doc.data())
+              
+              const para = document.createElement("p");
+        const node = document.createTextNode(doc.id);
+        para.appendChild(node);
+        const element = document.getElementById("div1");
+        element.appendChild(para);
+
               Object.entries(doc.data()).forEach(([key, value]) => {
-                console.log(key, value);
-                });
+   console.log(key, value);
+   const para = document.createElement("p");
+const node = document.createTextNode(key + ": " + value);
+para.appendChild(node);
+
+const element = document.getElementById("div1");
+element.appendChild(para);
+});
             });
+
+
+            const para = document.createElement("p");
+const node = document.createTextNode("This is new.");
+para.appendChild(node);
+
+const element = document.getElementById("div1");
+element.appendChild(para);
 //          // Handle form submission
 //   var form = document.getElementById('product-form');
 //   form.addEventListener('submit', function(event) {
