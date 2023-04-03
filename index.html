@@ -3,8 +3,7 @@
 <div id="demo1"></div>
 
 <div id="div1">
-  <p id="p1">This is a paragraph.</p>
-  <p id="p2">This is another paragraph.</p>
+<h1>Sweets</h1>
 </div>
 <form id="product-form" class="m-3">
   <div class="form-group">
@@ -75,12 +74,17 @@
 //           console.error("Error adding document: ", e);
 //         }
 
+            const querySnapshot = await getDocs(collection(db, "beverages"));
+            querySnapshot.forEach((doc) => {
+              document.getElementById("demo").innerHTML += doc.id + "\n"
+              document.getElementById("demo1").innerHTML += doc.data();
+            });
             const querySnapshot1 = await getDocs(collection(db, "food"));
             querySnapshot1.forEach((doc) => {
               console.log(doc.id)
               console.log(doc.data())
               
-              const para = document.createElement("p");
+              const para = document.createElement("h3");
         const node = document.createTextNode(doc.id);
         para.appendChild(node);
         const element = document.getElementById("div1");
