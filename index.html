@@ -56,15 +56,17 @@
 //             } catch (e) {
 //           console.error("Error adding document: ", e);
 //         }
-            const docRef = doc(db, "beverages/coffees/Nescafe", "espresso");
-            const docSnap = await getDoc(docRef);
 
-            if (docSnap.exists()) {
-              console.log("Document data:", docSnap.data());
-            } else {
-              // doc.data() will be undefined in this case
-              console.log("No such document!");
-            }
+            const querySnapshot = await getDocs(collection(db, "beverages"));
+            querySnapshot.forEach((doc) => {
+              console.log(doc.id)
+              console.log(doc.data())
+            });
+            const querySnapshot1 = await getDocs(collection(db, "food"));
+            querySnapshot1.forEach((doc) => {
+              console.log(doc.id)
+              console.log(doc.data())
+            });
 //          // Handle form submission
 //   var form = document.getElementById('product-form');
 //   form.addEventListener('submit', function(event) {
