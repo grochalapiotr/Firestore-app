@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form id="product-form" class="m-3">
+<!-- HTML form with Bootstrap styling -->
+<form id="product-form" class="m-3">
   <div class="form-group">
     <label for="name">Name:</label>
     <input type="text" class="form-control" id="name" name="name">
@@ -27,7 +19,7 @@
 </form>
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css%22%3E
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
@@ -68,6 +60,30 @@
             querySnapshot.forEach((doc) => {
             console.log(`${doc.id} => ${doc.data()}`);
 });
+//          // Handle form submission
+//   var form = document.getElementById('product-form');
+//   form.addEventListener('submit', function(event) {
+//     event.preventDefault();
+
+//     // Get the data from the form's input fields
+//     var name = form.elements.name.value;
+//     var price = form.elements.price.value;
+//     var description = form.elements.description.value;
+
+//     // Add the data to Firestore
+//     db.collection('products').add({
+//       name: name,
+//       price: price,
+//       description: description
+//     })
+//     .then(function(docRef) {
+//       console.log('Document written with ID: ', docRef.id);
+//       form.reset(); // Reset the form
+//     })
+//     .catch(function(error) {
+//       console.error('Error adding document: ', error);
+//     });
+//   });
       </script>
 </body>
 </html>
