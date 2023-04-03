@@ -29,6 +29,13 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
+        
+        var ref = firebase.database().ref();
+        ref.on("value", function(snapshot) {
+            console.log(snapshot.val());
+            }, function (error) {
+            console.log("Error: " + error.code);
+        });
       </script>
 </body>
 </html>
