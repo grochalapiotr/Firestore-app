@@ -5,6 +5,10 @@
 <div id="div1">
 <h1>Sweets</h1>
 </div>
+
+<div id="div2">
+  <h1>Beverages</h1>
+  </div>
 <form id="product-form" class="m-3">
   <div class="form-group">
     <label for="name">Name:</label>
@@ -76,29 +80,49 @@
 
             const querySnapshot = await getDocs(collection(db, "beverages"));
             querySnapshot.forEach((doc) => {
-              document.getElementById("demo").innerHTML += doc.id + "\n"
-              document.getElementById("demo1").innerHTML += doc.data();
+              // console.log(doc.id)
+              // console.log(doc.data())
+              // document.getElementById("demo").innerHTML += doc.id + "\n"
+              // document.getElementById("demo1").innerHTML += doc.data();
+
+              const para = document.createElement("h4");
+                const node = document.createTextNode(doc.id);
+                para.appendChild(node);
+                const element = document.getElementById("div2");
+                element.appendChild(para);
+
+                Object.entries(doc.data()).forEach(([key, value]) => {
+                console.log(key, value);
+                const para = document.createElement("p");
+              const node = document.createTextNode(key + ": " + value);
+              para.appendChild(node);
+
+              const element = document.getElementById("div2");
+              element.appendChild(para);
+              });
             });
+
+
             const querySnapshot1 = await getDocs(collection(db, "food"));
             querySnapshot1.forEach((doc) => {
               console.log(doc.id)
               console.log(doc.data())
               
-              const para = document.createElement("h3");
-        const node = document.createTextNode(doc.id);
-        para.appendChild(node);
-        const element = document.getElementById("div1");
-        element.appendChild(para);
+                const para = document.createElement("h4");
+                const node = document.createTextNode(doc.id);
+                para.appendChild(node);
+                const element = document.getElementById("div1");
+                element.appendChild(para);
 
               Object.entries(doc.data()).forEach(([key, value]) => {
-   console.log(key, value);
-   const para = document.createElement("p");
-const node = document.createTextNode(key + ": " + value);
-para.appendChild(node);
+                console.log(key, value);
+                const para = document.createElement("p");
+              const node = document.createTextNode(key + ": " + value);
+              para.appendChild(node);
 
-const element = document.getElementById("div1");
-element.appendChild(para);
-});
+              const element = document.getElementById("div1");
+              element.appendChild(para);
+              });
             });
 
 
