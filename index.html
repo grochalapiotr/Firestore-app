@@ -43,6 +43,10 @@
 //             } catch (e) {
 //           console.error("Error adding document: ", e);
 //         }
+           const querySnapshot = await getDocs(collection(db, "beverages"));
+            querySnapshot.forEach((doc) => {
+            console.log(`${doc.id} => ${doc.data()}`);
+});
       </script>
 </body>
 </html>
