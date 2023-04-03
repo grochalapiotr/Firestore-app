@@ -23,8 +23,7 @@
 
 
 <div id="div1">
-  <p id="p1">This is a paragraph.</p>
-  <p id="p2">This is another paragraph.</p>
+
 </div>
 
 
@@ -78,7 +77,7 @@
               console.log(doc.id)
               console.log(doc.data())
               
-              const para = document.createElement("p");
+              const para = document.createElement("h3");
         const node = document.createTextNode(doc.id);
         para.appendChild(node);
         const element = document.getElementById("div1");
@@ -96,12 +95,6 @@ element.appendChild(para);
             });
 
 
-            const para = document.createElement("p");
-const node = document.createTextNode("This is new.");
-para.appendChild(node);
-
-const element = document.getElementById("div1");
-element.appendChild(para);
 //          // Handle form submission
 //   var form = document.getElementById('product-form');
 //   form.addEventListener('submit', function(event) {
