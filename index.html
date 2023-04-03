@@ -1,6 +1,5 @@
 <!-- HTML form with Bootstrap styling -->
-<div id="demo"></div>
-<div id="demo1"></div>
+<div id="parent"></div>
 <form id="product-form" class="m-3">
   <div class="form-group">
     <label for="name">Name:</label>
@@ -60,9 +59,22 @@
 //         }
 
             const querySnapshot = await getDocs(collection(db, "beverages"));
+            let i = 0;
             querySnapshot.forEach((doc) => {
-              document.getElementById("demo").innerHTML += doc.id + "\n"
-              document.getElementById("demo1").innerHTML += doc.data();
+              i=i+1;
+              console.log(i)
+              let parent = document.querySelector('#parent');
+              let p = document.createElement('p');
+              p.id = "demo"+i ;
+              parent.appendChild(p);
+              document.getElementById("demo"+i).innerHTML = doc.id + "\n"
+              let d = document.createElement('p');
+              d.id = "demo1"+i ;
+              parent.appendChild(d);
+              Object.entries(doc.data()).forEach(([key, value]) => {
+                document.getElementById("demo1"+i).innerHTML += key + "\n" + value;
+                });
+              
             });
             const querySnapshot1 = await getDocs(collection(db, "food"));
             querySnapshot1.forEach((doc) => {
