@@ -24,7 +24,7 @@
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
         import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-analytics.js";
-        import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
+        import { getFirestore, collection, getDocs, addDoc, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-firestore.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -56,11 +56,15 @@
 //             } catch (e) {
 //           console.error("Error adding document: ", e);
 //         }
-           const querySnapshot = await getDocs(collection(db, "beverages"));
-            querySnapshot.forEach((doc) => {
-              querySnapshot.forEach(val => {
-                console.log(`${doc.id} => ${val.data()}`);
-}});
+            const docRef = doc(db, "beverages", "coffees");
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+              console.log("Document data:", docSnap.data());
+            } else {
+              // doc.data() will be undefined in this case
+              console.log("No such document!");
+            }
 //          // Handle form submission
 //   var form = document.getElementById('product-form');
 //   form.addEventListener('submit', function(event) {
