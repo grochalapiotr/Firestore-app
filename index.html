@@ -207,10 +207,10 @@ querySnapshot1.forEach((doc) => {
     var end_by_date1 = form.elements.description.value;
 
     // Add the data to Firestore
-    const docRef1 = setDoc(doc(db, "beverages",name), {
-    price: Number(price),
-    volume: Number(volume),
-    end_by_date: end_by_date
+    const docRef1 = setDoc(doc(db, "beverages",name1), {
+    price: Number(price1),
+    volume: Number(volume1),
+    end_by_date: end_by_date1
     });})
     // Handle form submission
   var form = document.getElementById('food-form');
