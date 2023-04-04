@@ -196,18 +196,18 @@ querySnapshot1.forEach((doc) => {
 
      
          // Handle form submission
-  var form = document.getElementById('product-form');
-  form.addEventListener('submit', function(event) {
+  var form1 = document.getElementById('product-form');
+  form1.addEventListener('submit', function(event) {
     event.preventDefault();
 
     // Get the data from the form's input fields
-    var name = form.elements.name.value;
-    var volume = form.elements.volume.value;
-    var price = form.elements.price.value;
-    var end_by_date = form.elements.description.value;
+    var name1 = form.elements.name.value;
+    var volume1 = form.elements.volume.value;
+    var price1 = form.elements.price.value;
+    var end_by_date1 = form.elements.description.value;
 
     // Add the data to Firestore
-    const docRef = setDoc(doc(db, "beverages",name), {
+    const docRef1 = setDoc(doc(db, "beverages",name), {
     price: Number(price),
     volume: Number(volume),
     end_by_date: end_by_date
@@ -224,7 +224,7 @@ querySnapshot1.forEach((doc) => {
     var end_by_date = form.elements.description.value;
 
     // Add the data to Firestore
-    const docRef = setDoc(doc(db, "beverages",name), {
+    const docRef = setDoc(doc(db, "food",name), {
     price: Number(price),
     volume: Number(volume),
     end_by_date: end_by_date
