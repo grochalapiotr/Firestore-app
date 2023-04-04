@@ -30,7 +30,7 @@
     <div class="row">
     <div class="col-sm mt-3">
       <label for="description">End-by date:</label>
-      <textarea class="form-control" id="description" name="description1"></textarea>
+      <textarea class="form-control" id="description1" name="description1"></textarea>
     </div>
     </div>
     <button type="submit" class="btn btn-primary">Add Product</button>
@@ -201,10 +201,10 @@ querySnapshot1.forEach((doc) => {
     event.preventDefault();
 
     // Get the data from the form's input fields
-    var name1 = form.elements.name1.value;
-    var volume1 = form.elements.volume1.value;
-    var price1 = form.elements.price1.value;
-    var end_by_date1 = form.elements.description1.value;
+    var name1 = form1.elements.name1.value;
+    var volume1 = form1.elements.volume1.value;
+    var price1 = form1.elements.price1.value;
+    var end_by_date1 = form1.elements.description1.value;
 
     // Add the data to Firestore
     const docRef1 = setDoc(doc(db, "beverages",name1), {
