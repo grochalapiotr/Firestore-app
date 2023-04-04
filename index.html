@@ -6,14 +6,10 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<div class="container-fluid p-5 bg-primary text-white text-center">
-  <h1>Warehouse app</h1> 
-  <p>
-    Kornel Fugat  |  Kamil Rachwał  |  Piotr Grochala
-  </p>
-</div>
+<div id="demo"></div>
+<div id="demo1"></div>
 
-<div class="col-sm mt-3">
+<div class="col-sm">
 <div>
   <h1>Add beverage</h>
   <form id="product-form">
@@ -33,11 +29,11 @@
     </div>
     <div class="row">
     <div class="col-sm mt-3">
-      <label for="description">End-by date:</label>
-      <textarea class="form-control" id="description1" name="description1"></textarea>
+      <label for="description">Date:</label>
+      <input type="date" id="date1" name="date1"></textarea>
     </div>
     </div>
-    <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+    <button type="submit" class="btn btn-primary">Add Product</button>
   </form>
   </div>
   
@@ -60,12 +56,13 @@
       </div>
       </div>
       <div class="row">
-      <div class="col-sm mt-3">
-        <label for="description">End-by date:</label>
-        <textarea class="form-control" id="description" name="description"></textarea>
+        <div class="col-sm mt-3">
+        <label for="description">Date:</label>
+        <input type="date" id="date" name="date"></textarea>
       </div>
+      
       </div>
-      <button type="submit" class="btn btn-primary mt-3">Add Product</button>
+      <button type="submit" class="btn btn-primary">Add Product</button>
     </form>
 </div>
   
@@ -208,13 +205,13 @@ querySnapshot1.forEach((doc) => {
     var name1 = form1.elements.name1.value;
     var volume1 = form1.elements.volume1.value;
     var price1 = form1.elements.price1.value;
-    var end_by_date1 = form1.elements.description1.value;
+    var date1 = form1.elements.date1.value;
 
     // Add the data to Firestore
     const docRef1 = setDoc(doc(db, "beverages",name1), {
     price: Number(price1),
     volume: Number(volume1),
-    end_by_date: end_by_date1
+    date: date1
     });})
     // Handle form submission
   var form = document.getElementById('food-form');
@@ -225,13 +222,13 @@ querySnapshot1.forEach((doc) => {
     var name = form.elements.name.value;
     var volume = form.elements.volume.value;
     var price = form.elements.price.value;
-    var end_by_date = form.elements.description.value;
+    var date = form.elements.date.value;
 
     // Add the data to Firestore
     const docRef = setDoc(doc(db, "food",name), {
     price: Number(price),
     volume: Number(volume),
-    end_by_date: end_by_date
+    date: date
     });})
       </script>
 </body>
